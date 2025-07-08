@@ -2,45 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Egyptian Rat Screw</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database-compat.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Egyptian Rat Screw</h1>
-    <div id="player-list"></div>
-    <div id="game">
-      <div id="top-player" class="player"></div>
-      <div class="pile-area">
-        <img id="pile-card" class="card-img" src="cards/back_of_card.png" alt="Pile" />
-      </div>
-      <div id="bottom-player" class="player">You</div>
-    </div>
-    <div id="controls">
-      <button id="playCardBtn">Play Card (A)</button>
-      <button id="slapBtn">Slap (Space)</button>
-    </div>
-    <div id="custom-rules">
-      <h3>Slap Rules (toggle)</h3>
-      <label><input type="checkbox" id="rule-doubles" checked/> Doubles</label>
-      <label><input type="checkbox" id="rule-topbottom" checked/> Match Top‑Bottom</label>
-      <label><input type="checkbox" id="rule-kq" checked/> King‑Queen Combo</label>
-      <label><input type="checkbox" id="rule-sandwich" checked/> Sandwich</label>
-      <label><input type="checkbox" id="rule-sum10" checked/> Sum to 10</label>
-      <label><input type="checkbox" id="rule-run4" checked/> Run of 4</label>
-    </div>
+  <div id="lobby">
+    <h1>Join ERS Game</h1>
+    <input type="text" id="playerName" placeholder="Enter your name" />
+    <button onclick="joinGame()">Join</button>
+    <div id="playerList"></div>
   </div>
 
-  <div id="win-screen">
-    <div id="win-message">🎉 You Win! 🎉</div>
-    <button id="restartBtn">Restart Game</button>
+  <div id="game" style="display: none;">
+    <h2 id="turnIndicator"></h2>
+
+    <div id="slapRules">
+      <h3>Slap Rules</h3>
+      <label><input type="checkbox" id="ruleDouble" checked /> Doubles</label>
+      <label><input type="checkbox" id="ruleTopBottom" checked /> Top/Bottom Match</label>
+      <label><input type="checkbox" id="ruleKingQueen" checked /> King/Queen Combo</label>
+      <label><input type="checkbox" id="ruleSandwich" checked /> Sandwich</label>
+      <label><input type="checkbox" id="ruleSum10" checked /> Sum to 10</label>
+      <label><input type="checkbox" id="ruleRun4" checked /> Run of 4</label>
+    </div>
+
+    <div id="pile"></div>
+    <div id="players"></div>
   </div>
 
-  <script src="main.js"></script>
-  <script type="module">
-</script>
+  <script src="script.js" defer></script>
 </body>
 </html>
