@@ -10,7 +10,7 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
-const roomRef = db.ref(`rooms/ers-room-1`);
+const roomRef = db.ref(`rooms/ers-game-1`);
 const playerId = `player_${Math.random().toString(36).substr(2,5)}`;
 
 let myHand = [], pile = [], isMyTurn = false;
