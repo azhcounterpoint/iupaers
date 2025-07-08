@@ -23,6 +23,7 @@ db.ref(".info/connected").on("value", snap => {
     roomRef.child(`players/${playerId}`).onDisconnect().remove();
     roomRef.child(`hands/${playerId}`).onDisconnect().remove();
     roomRef.child(`presence/${playerId}`).onDisconnect().remove(); // optional presence node
+  }
 });
 
 // ⚙️ Initialize or Join Game
