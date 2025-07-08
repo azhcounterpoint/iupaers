@@ -9,9 +9,12 @@
 <body>
   <div class="container">
     <h1>Egyptian Rat Screw</h1>
+    <div id="player-list"></div>
     <div id="game">
-      <div id="top-player" class="player">Waiting for Players...</div>
-      <img id="pile-card" src="" alt="Pile" class="card-img" />
+      <div id="top-player" class="player"></div>
+      <div class="pile-area">
+        <img id="pile-card" class="card-img" src="cards/back_of_card.png" alt="Pile" />
+      </div>
       <div id="bottom-player" class="player">You</div>
     </div>
     <div id="controls">
@@ -19,7 +22,7 @@
       <button id="slapBtn">Slap (Space)</button>
     </div>
     <div id="custom-rules">
-      <h3>Slap Rules</h3>
+      <h3>Slap Rules (toggle)</h3>
       <label><input type="checkbox" id="rule-doubles" checked/> Doubles</label>
       <label><input type="checkbox" id="rule-topbottom" checked/> Match Top‑Bottom</label>
       <label><input type="checkbox" id="rule-kq" checked/> King‑Queen Combo</label>
@@ -29,13 +32,12 @@
     </div>
   </div>
 
-  <!-- WIN SCREEN & RESTART -->
   <div id="win-screen">
     <div id="win-message">🎉 You Win! 🎉</div>
     <button id="restartBtn">Restart Game</button>
   </div>
 
-  <!-- Firebase -->
+  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
