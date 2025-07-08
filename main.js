@@ -22,10 +22,7 @@ db.ref(".info/connected").on("value", snap => {
   if (snap.val()) {
     roomRef.child(`players/${playerId}`).onDisconnect().remove();
     roomRef.child(`hands/${playerId}`).onDisconnect().remove();
-    roomRef.child("playerList").once('value').then(snap => {
-      const list = snap.val() || [];
-      const newList = list.filter(id => id !== playerId);
-    roomRef.child("playerList").onDisconnect().set(newList);
+    roomRef.child(`presence/${playerId}`).onDisconnect().remove(); // optional presence node
 });
 
 // ⚙️ Initialize or Join Game
